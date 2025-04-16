@@ -1,5 +1,4 @@
 import './globals.css';
-import Link from 'next/link';
 
 export const metadata = {
   title: 'Velocity Devices Inventory',
@@ -9,7 +8,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>
+      <body className="bg-gray-50">
         <div className="min-h-screen flex flex-col">
           <header className="bg-blue-700 text-white p-4">
             <div className="container mx-auto">
@@ -17,19 +16,19 @@ export default function RootLayout({ children }) {
               <nav className="mt-2">
                 <ul className="flex space-x-6">
                   <li>
-                    <Link href="/" className="hover:underline">
+                    <a href="/" className="hover:underline">
                       Home
-                    </Link>
+                    </a>
                   </li>
                   <li>
-                    <Link href="/collection" className="hover:underline">
+                    <a href="/collection" className="hover:underline">
                       Browse Devices
-                    </Link>
+                    </a>
                   </li>
                   <li>
-                    <Link href="/admin" className="hover:underline">
+                    <a href="/admin" className="hover:underline">
                       Admin Panel
-                    </Link>
+                    </a>
                   </li>
                 </ul>
               </nav>

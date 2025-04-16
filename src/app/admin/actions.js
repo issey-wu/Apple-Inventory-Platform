@@ -2,7 +2,7 @@
 
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
-import { createDevice, updateDevice, deleteDevice } from '@/utils/api';
+import { createDevice, updateDevice, deleteDevice } from '../../utils/api';
 
 // Action to create a new device
 export async function createDeviceAction(formData) {

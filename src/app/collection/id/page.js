@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { getAllDevices, getDeviceById } from '@/utils/api';
+import { getAllDevices, getDeviceById } from '../../utils/api';
 
 // Generate static pages for first 10 devices
 export async function generateStaticParams() {

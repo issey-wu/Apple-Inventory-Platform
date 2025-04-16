@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { getAllDevices } from '@/utils/api';
+import { getAllDevices } from '../../utils/api';
 import { deleteDeviceAction } from './actions';
 
 export default async function AdminPage() {
