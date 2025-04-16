@@ -14,13 +14,18 @@ export async function getAllDevices() {
 
 // Get a single device by ID
 export async function getDeviceById(id) {
-  const res = await fetch(`${API_URL}/devices/${id}`, { cache: 'no-store' });
-  
-  if (!res.ok) {
+  try {
+    const res = await fetch(`${API_URL}/devices/${id}`, { cache: 'no-store' });
+    
+    if (!res.ok) {
+      return null;
+    }
+    
+    return res.json();
+  } catch (error) {
+    console.error('Error fetching device:', error);
     return null;
   }
-  
-  return res.json();
 }
 
 // Create a new device
