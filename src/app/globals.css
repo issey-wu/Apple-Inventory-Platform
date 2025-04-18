@@ -1,3 +1,29 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Custom global styles */
+body {
+  @apply bg-gray-50;
+}
+
+/* Custom form styles */
+input, select, textarea {
+  @apply border-gray-300 rounded-md shadow-sm;
+}
+
+input:focus, select:focus, textarea:focus {
+  @apply outline-none ring-2 ring-blue-500 border-blue-500;
+}
+
+/* Button styles */
+button {
+  @apply focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500;
+}
+
+/* Table styles for better mobile responsiveness */
+@media (max-width: 768px) {
+  table th, table td {
+    @apply p-2 text-sm;
+  }
+}
