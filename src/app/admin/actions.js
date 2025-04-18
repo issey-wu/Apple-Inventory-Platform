@@ -7,7 +7,7 @@ import { createDevice, updateDevice, deleteDevice } from '../../utils/api';
 // Action to create a new device
 export async function createDeviceAction(formData) {
   const device = {
-    id: parseInt(formData.get('id')),
+    id: String(formData.get('id')), // Ensure ID is a string
     device_name: formData.get('device_name'),
     price: parseFloat(formData.get('price')),
     release_date: formData.get('release_date'),
@@ -29,7 +29,7 @@ export async function updateDeviceAction(formData) {
   const id = formData.get('id');
   
   const device = {
-    id: parseInt(id),
+    id: String(id), // Ensure ID is a string
     device_name: formData.get('device_name'),
     price: parseFloat(formData.get('price')),
     release_date: formData.get('release_date'),
