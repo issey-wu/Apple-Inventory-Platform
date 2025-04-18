@@ -1,8 +1,11 @@
-// Validation functions
-
-// Validate device fields
 export function validateDevice(device) {
   const errors = [];
+  
+  // Validate ID (must be a number)
+  const id = parseInt(device.id);
+  if (isNaN(id) || id <= 0) {
+    errors.push("ID must be a positive number.");
+  }
   
   // Validate device_name (3-30 characters)
   if (!device.device_name || device.device_name.length < 3 || device.device_name.length > 30) {
