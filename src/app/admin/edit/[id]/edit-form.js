@@ -11,7 +11,7 @@ export default function EditDeviceForm({ device, updateDeviceAction }) {
     release_date: device.release_date,
     rating: device.rating,
   });
-  const [errors, setErrors] = useState([]);
+  const [fieldErrors, setFieldErrors] = useState({});
 
   // Handle controlled inputs
   const handleChange = (e) => {
@@ -20,46 +20,108 @@ export default function EditDeviceForm({ device, updateDeviceAction }) {
       ...prev,
       [name]: value,
     }));
+    
+    // Clear field-specific error when user starts typing
+    if (fieldErrors[name]) {
+      setFieldErrors(prev => ({
+        ...prev,
+        [name]: null
+      }));
+    }
+  };
+
+  // Validate individual field
+  const validateField = (name, value) => {
+    switch (name) {
+      case 'id':
+        if (isNaN(parseInt(value)) || parseInt(value) <= 0) {
+          return "ID must be a positive number.";
+        }
+        break;
+      case 'device_name':
+        if (!value || value.length < 3 || value.length > 30) {
+          return "Device name must be between 3 and 30 characters.";
+        }
+        break;
+      case 'price':
+        const price = parseFloat(value);
+        if (isNaN(price) || price <= 0 || price >= 10000) {
+          return "Price must be a number between $0 - $10,000";
+        }
+        break;
+      case 'rating':
+        const rating = parseFloat(value);
+        if (isNaN(rating) || rating < 1 || rating > 5) {
+          return "Rating must be a number between 1 and 5";
+        }
+        break;
+    }
+    return null;
+  };
+
+  // Handle blur event to validate fields as user leaves them
+  const handleBlur = (e) => {
+    const { name, value } = e.target;
+    const error = validateField(name, value);
+    setFieldErrors(prev => ({
+      ...prev,
+      [name]: error
+    }));
   };
 
   // Validate form before submission
-  const handleSubmit = (e) => {
-    const validationErrors = validateDevice(formData);
-    if (validationErrors.length > 0) {
-      e.preventDefault(); // Prevent form submission if errors exist
-      setErrors(validationErrors);
-    } else {
-      setErrors([]);
-      // Do not call preventDefault so that the form submission flows
-      // and triggers the server action.
+  const handleFormAction = async (formData) => {
+    const deviceData = {
+      id: formData.get('id'),
+      device_name: formData.get('device_name'),
+      price: parseFloat(formData.get('price')),
+      release_date: formData.get('release_date'),
+      rating: parseFloat(formData.get('rating'))
+    };
+    
+    // Validate all fields at once
+    const newFieldErrors = {};
+    let hasErrors = false;
+    
+    // Check each field
+    Object.entries(deviceData).forEach(([field, value]) => {
+      const error = validateField(field, value);
+      if (error) {
+        newFieldErrors[field] = error;
+        hasErrors = true;
+      }
+    });
+    
+    if (hasErrors) {
+      setFieldErrors(newFieldErrors);
+      return; // Don't proceed with the server action
     }
+    
+    // Clear errors and proceed
+    setFieldErrors({});
+    return updateDeviceAction(formData);
   };
 
   return (
     <div className="bg-white rounded-lg shadow-md p-6">
-      {errors.length > 0 && (
-        <div className="mb-4 p-4 bg-red-50 border-l-4 border-red-500">
-          <h3 className="text-red-800 font-medium mb-2">
-            Please correct the following errors:
-          </h3>
-          <ul className="list-disc pl-5 text-red-700">
-            {errors.map((error, index) => (
-              <li key={index}>{error}</li>
-            ))}
-          </ul>
+      <form action={handleFormAction} className="space-y-4" noValidate>
+        <div>
+          <label htmlFor="id" className="block text-sm font-medium text-gray-700">ID</label>
+          <input
+            type="number"
+            id="id"
+            name="id"
+            value={formData.id}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            className={`mt-1 block w-full rounded-md ${fieldErrors.id ? 'border-red-300' : 'border-gray-300'} shadow-sm focus:border-blue-500 focus:ring-blue-500`}
+            required
+          />
+          {fieldErrors.id && (
+            <div className="mt-1 text-sm text-red-600">{fieldErrors.id}</div>
+          )}
         </div>
-      )}
-
-      {/* The form submits via POST to the server action passed in as updateDeviceAction */}
-      <form
-        action={updateDeviceAction}
-        method="POST"
-        onSubmit={handleSubmit}
-        className="space-y-4"
-      >
-        {/* Hidden field for ID */}
-        <input type="hidden" name="id" value={formData.id} />
-
+        
         <div>
           <label htmlFor="device_name" className="block text-sm font-medium text-gray-700">
             Device Name
@@ -70,9 +132,13 @@ export default function EditDeviceForm({ device, updateDeviceAction }) {
             name="device_name"
             value={formData.device_name}
             onChange={handleChange}
+            onBlur={handleBlur}
+            className={`mt-1 block w-full rounded-md ${fieldErrors.device_name ? 'border-red-300' : 'border-gray-300'} shadow-sm focus:border-blue-500 focus:ring-blue-500`}
             required
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
           />
+          {fieldErrors.device_name && (
+            <div className="mt-1 text-sm text-red-600">{fieldErrors.device_name}</div>
+          )}
         </div>
 
         <div>
@@ -86,9 +152,13 @@ export default function EditDeviceForm({ device, updateDeviceAction }) {
             step="0.01"
             value={formData.price}
             onChange={handleChange}
+            onBlur={handleBlur}
+            className={`mt-1 block w-full rounded-md ${fieldErrors.price ? 'border-red-300' : 'border-gray-300'} shadow-sm focus:border-blue-500 focus:ring-blue-500`}
             required
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
           />
+          {fieldErrors.price && (
+            <div className="mt-1 text-sm text-red-600">{fieldErrors.price}</div>
+          )}
         </div>
 
         <div>
@@ -101,8 +171,9 @@ export default function EditDeviceForm({ device, updateDeviceAction }) {
             name="release_date"
             value={formData.release_date}
             onChange={handleChange}
-            required
+            onBlur={handleBlur}
             className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+            required
           />
         </div>
 
@@ -114,14 +185,15 @@ export default function EditDeviceForm({ device, updateDeviceAction }) {
             type="number"
             id="rating"
             name="rating"
-            min="1"
-            max="5"
-            step="0.1"
             value={formData.rating}
             onChange={handleChange}
+            onBlur={handleBlur}
+            className={`mt-1 block w-full rounded-md ${fieldErrors.rating ? 'border-red-300' : 'border-gray-300'} shadow-sm focus:border-blue-500 focus:ring-blue-500`}
             required
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
           />
+          {fieldErrors.rating && (
+            <div className="mt-1 text-sm text-red-600">{fieldErrors.rating}</div>
+          )}
         </div>
 
         <div className="pt-2">
