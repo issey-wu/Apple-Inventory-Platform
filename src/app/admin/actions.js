@@ -50,15 +50,30 @@ export async function updateDeviceAction(formData) {
 
 // Action to delete a device
 export async function deleteDeviceAction(formData) {
-  const id = formData.get('id');
-  
-  await deleteDevice(id);
-  
-  // Revalidate the necessary paths
-  revalidatePath('/collection');
-  revalidatePath(`/collection/${id}`);
-  revalidatePath('/admin');
-  
-  // Revalidate and stay on the current page
-  revalidatePath('/admin');
+  try {
+    const id = formData.get('id');
+    
+    // Log the device ID for debugging
+    console.log('Attempting to delete device with ID:', id);
+    
+    const response = await fetch(`http://localhost:4000/devices/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    
+    if (!response.ok) {
+      console.error('Delete failed with status:', response.status);
+      throw new Error(`Failed to delete device: ${response.statusText}`);
+    }
+    
+    // Revalidate paths
+    revalidatePath('/collection');
+    revalidatePath('/admin');
+    
+  } catch (error) {
+    console.error('Delete device error:', error);
+    throw new Error('Failed to delete device');
+  }
 }

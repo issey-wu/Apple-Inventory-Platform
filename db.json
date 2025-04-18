@@ -69,13 +69,6 @@
       "price": 499.99,
       "release_date": "2024-09-20",
       "rating": 4.7
-    },
-    {
-      "id": 11,
-      "device_name": "iPhone 16 Pro",
-      "price": 20000,
-      "release_date": "2024-09-20",
-      "rating": 5
     }
   ]
 }
