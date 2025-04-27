@@ -1,9 +1,9 @@
 export default function Home() {
   return (
     <div className="flex flex-col items-center justify-center min-h-[60vh] text-center">
-      <h1 className="text-4xl font-bold mb-6">Welcome to Velocity Devices</h1>
+      <h1 className="text-4xl font-bold mb-6">Welcome to the Product Management Platform</h1>
       <p className="text-xl mb-8 max-w-2xl">
-        Browse our catalog of latest electronic devices or manage the inventory through our admin panel.
+        Browse the catalog of devices or manage the product-line through the admin panel.
       </p>
       <div className="flex space-x-4">
         <a 

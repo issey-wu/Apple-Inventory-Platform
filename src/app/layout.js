@@ -1,8 +1,8 @@
 import './globals.css';
 
 export const metadata = {
-  title: 'Velocity Devices Inventory',
-  description: 'Inventory management system for Velocity Devices',
+  title: 'Apple Devices Inventory',
+  description: 'Mock inventory management system for Apple Devices',
 };
 
 export default function RootLayout({ children }) {
@@ -12,7 +12,7 @@ export default function RootLayout({ children }) {
         <div className="min-h-screen flex flex-col">
           <header className="bg-blue-700 text-white p-4">
             <div className="container mx-auto">
-              <h1 className="text-2xl font-bold">Velocity Devices Inventory</h1>
+              <h1 className="text-2xl font-bold">Apple Product Line (Mock)</h1>
               <nav className="mt-2">
                 <ul className="flex space-x-6">
                   <li>
@@ -41,7 +41,7 @@ export default function RootLayout({ children }) {
           
           <footer className="bg-gray-200 p-4 mt-auto">
             <div className="container mx-auto text-center">
-              <p>© 2025 Velocity Devices. All rights reserved.</p>
+              <p>© 2025 Apple Mock-Inventory Project | Issey Wu | For Educational Purposes Only</p>
             </div>
           </footer>
         </div>

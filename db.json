@@ -2,73 +2,157 @@
   "devices": [
     {
       "id": "1",
-      "device_name": "V-Phone Mega",
-      "price": 1299.99,
-      "release_date": "2025-02-01",
+      "device_name": "iPhone 16",
+      "price": 1129,
+      "release_date": "2024-09-20",
       "rating": 4.8
     },
     {
       "id": "2",
-      "device_name": "V-Phone Elite",
-      "price": 1199.99,
+      "device_name": "iPhone 16 Plus",
+      "price": 1279,
       "release_date": "2024-09-20",
       "rating": 4.7
     },
     {
       "id": "3",
-      "device_name": "V-Laptop Elite",
-      "price": 1899.99,
-      "release_date": "2024-10-15",
-      "rating": 4.5
-    },
-    {
-      "id": "4",
-      "device_name": "V-Phone Lite",
-      "price": 899.99,
-      "release_date": "2024-10-10",
-      "rating": 4.6
-    },
-    {
-      "id": "5",
-      "device_name": "V-Laptop Feather",
-      "price": 1499.99,
-      "release_date": "2024-11-10",
+      "device_name": "iPhone 16 Pro",
+      "price": 1449,
+      "release_date": "2024-09-20",
       "rating": 4.9
     },
     {
-      "id": "6",
-      "device_name": "V-Tablet Elite",
-      "price": 899.99,
-      "release_date": "2024-10-22",
-      "rating": 4.7
+      "id": "4",
+      "device_name": "iPhone 16 Pro Max",
+      "price": 1749,
+      "release_date": "2024-09-20",
+      "rating": 4.9
     },
     {
-      "id": "7",
-      "device_name": "V-Laptop Elite",
-      "price": 2199.99,
-      "release_date": "2024-08-15",
+      "id": "5",
+      "device_name": "iPhone 16e",
+      "price": 899,
+      "release_date": "2025-02-28",
       "rating": 4.6
     },
     {
+      "id": "6",
+      "device_name": "MacBook Air 13-inch (M4)",
+      "price": 1399,
+      "release_date": "2025-03-12",
+      "rating": 4.9
+    },
+    {
+      "id": "7",
+      "device_name": "MacBook Air 15-inch (M4)",
+      "price": 1699,
+      "release_date": "2025-03-12",
+      "rating": 4.9
+    },
+    {
       "id": "8",
-      "device_name": "V-Laptop Gaming",
-      "price": 2699.99,
-      "release_date": "2024-11-01",
+      "device_name": "MacBook Pro 14-inch (M4)",
+      "price": 2099,
+      "release_date": "2024-11-08",
       "rating": 4.8
     },
     {
       "id": "9",
-      "device_name": "V-Headphones Premium",
-      "price": 349.99,
-      "release_date": "2024-07-15",
-      "rating": 4.9
+      "device_name": "MacBook Pro 16-inch (M4)",
+      "price": 3299,
+      "release_date": "2024-11-08",
+      "rating": 4.8
     },
     {
       "id": "10",
-      "device_name": "V-Watch Series V",
-      "price": 399.99,
+      "device_name": "iPad Pro 11-inch (M4)",
+      "price": 1399,
+      "release_date": "2024-05-15",
+      "rating": 4.9
+    },
+    {
+      "id": "11",
+      "device_name": "iPad Pro 13-inch (M4)",
+      "price": 1799,
+      "release_date": "2024-05-15",
+      "rating": 4.9
+    },
+    {
+      "id": "12",
+      "device_name": "iPad Air 11-inch (M3)",
+      "price": 799,
+      "release_date": "2025-03-12",
+      "rating": 4.7
+    },
+    {
+      "id": "13",
+      "device_name": "iPad Air 13-inch (M3)",
+      "price": 1099,
+      "release_date": "2025-03-12",
+      "rating": 4.8
+    },
+    {
+      "id": "14",
+      "device_name": "AirPods 4 (Standard)",
+      "price": 179,
       "release_date": "2024-09-20",
       "rating": 4.7
+    },
+    {
+      "id": "15",
+      "device_name": "AirPods 4 (With ANC)",
+      "price": 249,
+      "release_date": "2024-09-20",
+      "rating": 4.9
+    },
+    {
+      "id": "16",
+      "device_name": "AirPods Max (USB-C)",
+      "price": 779,
+      "release_date": "2024-09-20",
+      "rating": 4.7
+    },
+    {
+      "id": "17",
+      "device_name": "Mac mini (M4)",
+      "price": 799,
+      "release_date": "2024-11-08",
+      "rating": 4.8
+    },
+    {
+      "id": "18",
+      "device_name": "Mac mini (M4 Pro)",
+      "price": 1899,
+      "release_date": "2024-11-08",
+      "rating": 4.9
+    },
+    {
+      "id": "19",
+      "device_name": "Mac Studio (M4 Max)",
+      "price": 2699,
+      "release_date": "2025-03-12",
+      "rating": 4.8
+    },
+    {
+      "id": "20",
+      "device_name": "Apple Watch Series 10 (GPS, 42mm)",
+      "price": 549,
+      "release_date": "2024-09-20",
+      "rating": 4.9
+    },
+    {
+      "id": "21",
+      "device_name": "Apple Watch Ultra 2 (49mm, Cellular)",
+      "price": 1099,
+      "release_date": "2023-09-22",
+      "rating": 4.8
+    },
+    {
+      "id": "22",
+      "device_name": "Apple Vision Pro (256 GB)",
+      "price": 4999,
+      "release_date": "2024-07-12",
+      "rating": 4.9
     }
   ]
 }
