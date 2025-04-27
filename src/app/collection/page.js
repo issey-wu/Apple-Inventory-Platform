@@ -8,7 +8,7 @@ export default async function CollectionPage() {
     <div>
       <h1 className="text-3xl font-bold mb-6">Our Device Collection</h1>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6">
         {devices.map((device) => (
           <div 
             key={device.id} 

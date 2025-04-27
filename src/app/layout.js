@@ -14,7 +14,7 @@ export default function RootLayout({ children }) {
             <div className="container mx-auto">
               <h1 className="text-2xl font-bold">Apple Product Line (Mock)</h1>
               <nav className="mt-2">
-                <ul className="flex space-x-6">
+                <ul className="flex flex-wrap space-x-4 md:space-x-6">
                   <li>
                     <a href="/" className="hover:underline">
                       Home
@@ -35,7 +35,7 @@ export default function RootLayout({ children }) {
             </div>
           </header>
           
-          <main className="flex-grow container mx-auto p-4">
+          <main className="flex-grow container mx-auto py-6 px-4">
             {children}
           </main>
           

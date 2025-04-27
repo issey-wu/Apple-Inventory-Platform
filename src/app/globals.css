@@ -7,6 +7,21 @@ body {
   @apply bg-gray-50;
 }
 
+/* Responsive container for better scaling on large screens */
+.container {
+  @apply mx-auto px-4 w-full;
+  max-width: min(95%, 1800px);
+}
+
+/* Responsive card grid system */
+.responsive-grid {
+  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 lg:gap-6;
+}
+
+.card {
+  @apply bg-white rounded-lg shadow-md p-4 md:p-6 hover:shadow-lg transition-shadow h-full flex flex-col;
+}
+
 /* Custom form styles */
 input, select, textarea {
   @apply border-gray-300 rounded-md shadow-sm;
@@ -25,5 +40,24 @@ button {
 @media (max-width: 768px) {
   table th, table td {
     @apply p-2 text-sm;
+  }
+}
+
+/* Scale adjustments for different screen sizes */
+@media (min-width: 1280px) {
+  html {
+    font-size: 17px;
+  }
+}
+
+@media (min-width: 1536px) {
+  html {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 1920px) {
+  html {
+    font-size: 19px;
   }
 }
