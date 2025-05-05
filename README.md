@@ -1,10 +1,10 @@
 # 🍎 Apple Product Platform (Mock)
 
-Welcome to the Apple Mock-Inventory Platform, a modern web application for showcasing and managing a catalogue of Apple products! This project is driven by my professional experience at Apple and is delivered through full-stack web applications using Next.js, RESTful APIs, and modern UI design principles.
+Welcome to my Mock-Apple Product Platform, a modern web application driven by my professional experience at Apple and delivered through full-stack web applications using Next.js, RESTful APIS, and modern UI design principles.
 
 ## Purpose
 
-This application is a mock product management system for Apple products that combines a public-facing catalogue with administrative functionality. Drawing inspiration from real-world retail systems, it provides a platform for browsing the latest Apple devices while allowing administrators to control product listings. Built with a clear separation of public-facing and administrative functionality, this system is just as easy for shoppers as for inventory managers. The website displays best practices in modern web development using Next.js, emphasizing functionality and user experience.
+This application is a product management system for Apple products that combines a platform for browsing the latest Apple devices while allowing administrators to control product listings. Built with a clear separation of public-facing and administrative functionality, this system is as easy for shoppers as for product managers. The website displays best practices in modern web development using Next.js to emphasize functionality and user experience.
 
 ## What Can It Do?
 
@@ -15,25 +15,25 @@ This full-stack application helps you:
 - **Create, update, and delete products** with real-time form validation
 - **Validate product data** to ensure consistency and accuracy
 
-Whether you're a customer looking for information on the latest iPhone, iPad, or Mac or an administrator maintaining the product catalogue, this application empowers the entire process with a modern, user-friendly interface.
+Whether you're a customer looking for information on the latest iPhone, iPad, or Mac or an administrator maintaining the product catalogue, this application's modern, user-friendly interface empowers the entire process.
 
 ## Feature Showcase!
 
 ### Home Page:
 ![Home Page](screenshots/home_page.png)
-The welcoming landing page provides clear navigation options for users to browse the device collection or access the administrative panel. A clean, modern design immediately communicates the purpose of the application and guides users to their desired destination.
+The welcoming landing page provides clear navigation options for users to browse the device collection or access the administrative panel. A clean, contemporary design immediately communicates the application's purpose and guides users to their desired destination.
 
 ### Collection View:
 ![Collection View](screenshots/collection_view.png)
-The collection page presents all Apple devices in a simple grid layout, showing just enough information to help users find what they're looking for. Each device card displays the device name and ID with a "more" link for accessing detailed information. The responsive design ensures a consistent experience across all devices.
+The collection page presents all Apple devices in a simple grid layout, showing just enough information to help users find what they want. Each device card displays the device name and ID with a "more" link for accessing detailed information. The responsive design ensures a consistent experience across all devices.
 
 ### Device Detail View:
 ![Device Detail View](screenshots/device_detail.png)
-Clicking on a device reveals a detailed view with all device information in a structured format. The page includes key device attributes like price, release date, and rating in a clean, tabular layout with proper formatting for currency and dates. A back button also allows for easy navigation to the collection page.
+Clicking on a device reveals a detailed view with all device information in a structured format. The page includes key device attributes like price, release date, and rating in a simple, tabular layout with proper formatting for currency and dates. A back button also allows for easy navigation to the collection page.
 
 ### Admin Dashboard:
 ![Admin Dashboard](screenshots/admin_dashboard.png)
-The admin dashboard provides an overview of all Apple devices in the inventory. Each device is presented in a row with all relevant information and action buttons for editing or deleting. The table format lets administrators quickly scan the entire inventory, while the "Create New" button makes adding new devices intuitive.
+The admin dashboard provides an overview of all Apple devices in the backlog. Each device is presented in a row with all relevant information and action buttons for editing or deleting. The table format lets administrators quickly scan the entire inventory, while the "Create New" button makes adding new devices intuitive.
 
 ### Create Device Form:
 ![Create Device Form](screenshots/create_form.png)
@@ -41,7 +41,7 @@ Adding new devices is streamlined through a comprehensive form with fields for a
 
 ### Edit Device Form with Validation:
 ![Edit Device Form](screenshots/edit_form.png)
-The edit form allows administrators to modify existing device information with assurance. Real-time validation occurs when users enter a field, showing validation errors immediately. This ensures data integrity while providing a smooth user experience. Before editing, all fields are pre-populated with the current device data, making it easy to update only what needs changing.
+The edit form allows admins to modify existing device information with assurance. Real-time validation occurs when users enter a field, showing validation errors immediately. This ensures data integrity while providing a smooth user experience. Before editing, all fields are pre-populated with the current device data, making it easy to update only what needs changing.
 
 ### RESTful API:
 ![REST API](screenshots/rest_api.png)
@@ -94,7 +94,7 @@ The application is powered by a RESTful API running on JSON Server. These are my
 ```
 ## Why I Built This:
 
-I created this Apple-inspired inventory management system, directly drawing from my experience working at Apple as a Product Specialist. During my time there, I gained firsthand exposure to sophisticated inventory management systems. I saw how crucial they are for maintaining product data, tracking stock, and providing accurate information to both customers and staff.
+I created this Apple-inspired product management system, directly drawing from my experience working at Apple as a Product Specialist. During my time there, I gained firsthand exposure to sophisticated product management systems. I saw how crucial they are for maintaining product data, tracking stock, and providing accurate information to both customers and staff.
 
 ---
 
