@@ -71,35 +71,55 @@ export default function EditDeviceForm({ device, updateDeviceAction }) {
 
   // Validate form before submission
   const handleFormAction = async (formData) => {
-    const deviceData = {
-      id: formData.get('id'),
-      device_name: formData.get('device_name'),
-      price: parseFloat(formData.get('price')),
-      release_date: formData.get('release_date'),
-      rating: parseFloat(formData.get('rating'))
-    };
-    
-    // Validate all fields at once
-    const newFieldErrors = {};
-    let hasErrors = false;
-    
-    // Check each field
-    Object.entries(deviceData).forEach(([field, value]) => {
-      const error = validateField(field, value);
-      if (error) {
-        newFieldErrors[field] = error;
-        hasErrors = true;
+    try {
+      const originalId = device.id; // Store the original ID
+      
+      // Create a proper FormData object
+      const formDataToSubmit = new FormData();
+      formDataToSubmit.append('id', formData.get('id'));
+      formDataToSubmit.append('device_name', formData.get('device_name'));
+      formDataToSubmit.append('price', formData.get('price'));
+      formDataToSubmit.append('release_date', formData.get('release_date'));
+      formDataToSubmit.append('rating', formData.get('rating'));
+      
+      // Add original ID as a hidden field
+      formDataToSubmit.append('original_id', originalId);
+      
+      // Validate the form data
+      const deviceData = {
+        id: formData.get('id'),
+        device_name: formData.get('device_name'),
+        price: parseFloat(formData.get('price')),
+        release_date: formData.get('release_date'),
+        rating: parseFloat(formData.get('rating'))
+      };
+      
+      // Validate all fields
+      const newFieldErrors = {};
+      let hasErrors = false;
+      
+      Object.entries(deviceData).forEach(([field, value]) => {
+        const error = validateField(field, value);
+        if (error) {
+          newFieldErrors[field] = error;
+          hasErrors = true;
+        }
+      });
+      
+      if (hasErrors) {
+        setFieldErrors(newFieldErrors);
+        return; // Don't proceed
       }
-    });
-    
-    if (hasErrors) {
-      setFieldErrors(newFieldErrors);
-      return; // Don't proceed with the server action
+      
+      // Clear errors and proceed
+      setFieldErrors({});
+      return updateDeviceAction(formDataToSubmit);
+    } catch (error) {
+      console.error('Error in handleFormAction:', error);
+      // Show error to user
+      setFieldErrors({ form: 'Failed to process form: ' + error.message });
+      return;
     }
-    
-    // Clear errors and proceed
-    setFieldErrors({});
-    return updateDeviceAction(formData);
   };
 
   return (
